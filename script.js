@@ -77,7 +77,7 @@ function whack(e) {
     score++;
     scoreBoard.textContent = score;
     
-    // Memberikan efek animasi terpukul sesuai dengan CSS .mole.hit
+    // Memberikan efek animasi terpukul (.mole.hit)
     this.classList.add('hit');
     
     // Sembunyikan tikus kembali dan reset state-nya setelah 150ms
@@ -90,3 +90,7 @@ function whack(e) {
 // --- Event Listeners ---
 moles.forEach(mole => mole.addEventListener('click', whack));
 startBtn.addEventListener('click', startGame);
+
+// Efek ayunan kursor palu berdasarkan interaksi klik mouse
+window.addEventListener('mousedown', () => document.body.classList.add('active'));
+window.addEventListener('mouseup', () => document.body.classList.remove('active'));

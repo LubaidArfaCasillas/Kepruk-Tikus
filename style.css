@@ -7,7 +7,26 @@ body {
     background-position: center;
     margin: 0;
     min-height: 100vh;
-    cursor: url('assets/palu.png'), auto; /* Kursor palu untuk area game */
+    cursor: url('assets/palu.png'), auto;
+}
+
+/* State aktif saat layar di-klik untuk memicu animasi palu */
+body.active {
+    cursor: url('assets/palu.png'), auto;
+    animation: paluAyun 0.1s;
+}
+
+/* Animasi Ayunan Palu */
+@keyframes paluAyun {
+    0% { 
+        transform: translateY(0); 
+    }
+    50% { 
+        transform: translateY(5px) rotate(-5deg); 
+    }
+    100% { 
+        transform: translateY(0); 
+    }
 }
 
 .header {
@@ -26,7 +45,7 @@ body {
 button {
     padding: 10px 30px;
     font-size: 1.2rem;
-    cursor: url('assets/palu.png'), pointer; /* Kursor palu tetap aktif saat mengarah ke tombol */
+    cursor: url('assets/palu.png'), pointer;
 }
 
 .game-board {
