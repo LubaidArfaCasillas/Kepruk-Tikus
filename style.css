@@ -7,6 +7,7 @@ body {
     background-position: center;
     margin: 0;
     min-height: 100vh;
+    cursor: url('assets/palu.png'), auto; /* Kursor palu untuk area game */
 }
 
 .header {
@@ -25,7 +26,7 @@ body {
 button {
     padding: 10px 30px;
     font-size: 1.2rem;
-    cursor: pointer;
+    cursor: url('assets/palu.png'), pointer; /* Kursor palu tetap aktif saat mengarah ke tombol */
 }
 
 .game-board {
