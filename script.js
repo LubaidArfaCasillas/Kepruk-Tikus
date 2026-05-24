@@ -63,7 +63,6 @@ function startGame() {
             timeUp = true;
             startBtn.disabled = false;
             
-            // Memberi jeda sedikit agar render angka 0 tidak terhambat alert
             setTimeout(() => {
                 alert(`Game Over! Skor akhir kamu: ${score}`);
             }, 500);
@@ -76,8 +75,16 @@ function whack(e) {
     if (!e.isTrusted) return; // Anticheat bot/script
     
     score++;
-    this.classList.remove('up');
     scoreBoard.textContent = score;
+    
+    // Memberikan efek animasi terpukul sesuai dengan CSS .mole.hit
+    this.classList.add('hit');
+    
+    // Sembunyikan tikus kembali dan reset state-nya setelah 150ms
+    setTimeout(() => {
+        this.classList.remove('up');
+        this.classList.remove('hit');
+    }, 150);
 }
 
 // --- Event Listeners ---
