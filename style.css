@@ -1,59 +1,60 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  background-image: url('assets/background.png');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  margin: 0;
-  min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-image: url('assets/background.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    margin: 0;
+    min-height: 100vh;
 }
 
 .header {
-  padding: 20px;
+    padding: 20px;
 }
 
 .stats {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
 button {
-  padding: 10px 30px;
-  font-size: 1.2rem;
-  cursor: pointer;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .game-board {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  width: 600px;
-  margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 600px;
+    margin: 20px auto;
 }
 
 .hole {
-  background-color: #475569;
-  height: 150px;
-  position: relative;
-  overflow: hidden;
+    background: url('assets/lubang.png') bottom center no-repeat;
+    background-size: contain;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
 }
 
 .mole {
-  background-color: #a855f7;
-  width: 80%;
-  height: 100%;
-  margin: 0 auto;
-  position: absolute;
-  top: 100%;
-  left: 10%;
-  transition: top 0.3s ease;
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #a855f7;
+    transition: top 0.3s ease;
 }
 
 .mole.up {
-  top: 10%;
+    top: 10%;
 }
