@@ -9,12 +9,12 @@ let timeUp = false;
 let score = 0;
 let timeLeft = 15;
 
-// 1. Menghasilkan durasi acak (dalam milidetik) untuk kemunculan tikus
+// 1. Menghasilkan durasi acak (dalam milidetik)
 function getRandomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
-// 2. Memilih lubang acak secara acak tanpa mengulang lubang yang sama berturut-turut
+// 2. Memilih lubang acak tanpa mengulang lubang yang sama berturut-turut
 function getRandomHole(holes) {
     const idx = Math.floor(Math.random() * holes.length);
     const hole = holes[idx];
@@ -27,7 +27,7 @@ function getRandomHole(holes) {
     return hole;
 }
 
-// 3. Logika untuk memunculkan tikus ke permukaan
+// 3. Memunculkan tikus ke permukaan
 function popUp() {
     const time = getRandomTime(500, 1000);
     const hole = getRandomHole(holes);
@@ -43,9 +43,7 @@ function popUp() {
 
 // 4. Memulai permainan baru
 function startGame() {
-    // Nonaktifkan tombol start agar tidak bisa di-klik ulang saat game jalan
-    startBtn.disabled = true; 
-    
+    startBtn.disabled = true;
     score = 0;
     timeLeft = 15;
     timeUp = false;
@@ -63,15 +61,19 @@ function startGame() {
         if (timeLeft === 0) {
             clearInterval(countdown);
             timeUp = true;
-            startBtn.disabled = false; // Aktifkan kembali tombol setelah game selesai
+            startBtn.disabled = false;
+            
+            // Memberi jeda sedikit agar render angka 0 tidak terhambat alert
+            setTimeout(() => {
+                alert(`Game Over! Skor akhir kamu: ${score}`);
+            }, 500);
         }
     }, 1000);
 }
 
-// 5. Logika ketika tikus berhasil dipukul (di-klik)
+// 5. Logika ketika tikus berhasil dipukul
 function whack(e) {
-    // Mencegah kecurangan (klik palsu via script/bot)
-    if (!e.isTrusted) return; 
+    if (!e.isTrusted) return; // Anticheat bot/script
     
     score++;
     this.classList.remove('up');
